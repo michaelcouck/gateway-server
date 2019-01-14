@@ -1,0 +1,43 @@
+server:
+  port: 8284
+  ssl:
+    enabled: true
+    keyStoreType: JKS
+    key-alias: vdab
+    key-store: /etc/ssl/certs/vdab.jks
+    key-store-password: 3DHpdKDFVafErV7X
+
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: sand-box
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      # Configuration via declaration
+      #  routes:
+      #    - id: state-machine
+      #      uri: lb://state-machine
+      #predicates:
+      # - Path=/api
+      # config:
+      # uri: ${CONFIG_URI:https://localhost:8888}
+
+eureka:
+  client:
+    fetchRegistry: false
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:https://sl01748v.ops.vdab.be:8443/eureka},${EUREKA_URI:https://sl01749v.ops.vdab.be:8443/eureka},${EUREKA_URI:https://sl01750v.ops.vdab.be:8443/eureka}
+
+# Security
+vdab.key-store-certificate: /etc/ssl/certs/vdab.jks
+vdab.key-store-password: 3DHpdKDFVafErV7X
+vdab.trust-store-certificate: /etc/ssl/certs/vdab.jks
+vdab.trust-store-password: 3DHpdKDFVafErV7X
+
+sand-box-property: sand-box-property
