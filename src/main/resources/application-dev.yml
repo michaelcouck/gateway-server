@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: gateway
+    name: gateway-server
   profiles:
     active: dev
   cloud:
@@ -39,5 +39,3 @@ vdab.key-store-certificate: /etc/ssl/certs/vdab.jks
 vdab.key-store-password: 3DHpdKDFVafErV7X
 vdab.trust-store-certificate: /etc/ssl/certs/vdab.jks
 vdab.trust-store-password: 3DHpdKDFVafErV7X
-
-dev-property: dev-property

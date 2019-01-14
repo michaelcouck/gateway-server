@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: gateway
+    name: gateway-server
   profiles:
     active: default
   cloud:
@@ -18,14 +18,6 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
-      # Configuration via declaration
-      #  routes:
-      #    - id: state-machine
-      #      uri: lb://state-machine
-      #predicates:
-      # - Path=/api
-      # config:
-      # uri: ${CONFIG_URI:https://localhost:8888}
 
 eureka:
   client:
@@ -39,5 +31,3 @@ vdab.key-store-certificate: C:/etc/ssl/certs/vdab.jks
 vdab.key-store-password: 3DHpdKDFVafErV7X
 vdab.trust-store-certificate: C:/etc/ssl/certs/vdab.jks
 vdab.trust-store-password: 3DHpdKDFVafErV7X
-
-property: property
