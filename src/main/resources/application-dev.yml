@@ -10,6 +10,8 @@ server:
 spring:
   application:
     name: gateway-server
+  profiles:
+    active: dev
   cloud:
     gateway:
       discovery:

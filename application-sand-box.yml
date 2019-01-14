@@ -10,6 +10,8 @@ server:
 spring:
   application:
     name: gateway-server
+  profiles:
+    active: sand-box
   cloud:
     gateway:
       discovery:
