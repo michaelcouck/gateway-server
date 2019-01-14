@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>be.vdab</groupId>
-    <artifactId>gateway-server</artifactId>
+    <artifactId>gateway</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>gateway-server</name>
+    <name>gateway</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

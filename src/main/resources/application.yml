@@ -9,7 +9,7 @@ server:
 
 spring:
   application:
-    name: gateway-server
+    name: gateway
   profiles:
     active: default
   cloud:
