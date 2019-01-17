@@ -14,7 +14,7 @@ spring:
     active: sand-box
   cloud:
     config:
-      uri: ${CONFIG_URI:https://sl01736v.ops.vdab.be:8888}
+      uri: https://sl01736v.ops.vdab.be:8888,https://sl01745v.ops.vdab.be:8888,https://sl01747v.ops.vdab.be:8888
     gateway:
       discovery:
         locator:
@@ -34,7 +34,7 @@ eureka:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: ${EUREKA_URI:https://sl01748v.ops.vdab.be:8443/eureka}
+      defaultZone: https://sl01748v.ops.vdab.be:8443/eureka,https://sl01749v.ops.vdab.be:8443/eureka,https://sl01750v.ops.vdab.be:8443/eurekas
 
 # Security
 vdab.key-store-certificate: /etc/ssl/certs/vdab.jks
