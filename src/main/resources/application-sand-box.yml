@@ -21,20 +21,18 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       # Configuration via declaration
-      #  routes:
-      #    - id: state-machine
-      #      uri: lb://state-machine
-      #predicates:
-      # - Path=/api
-      # config:
-      # uri: ${CONFIG_URI:https://localhost:8888}
+      #routes:
+      #- id: query-service
+      #  uri: lb://query-service
+      #  predicates:
+      #  - Path=/query-service
 
 eureka:
   client:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: https://sl01748v.ops.vdab.be:8443/eureka,https://sl01749v.ops.vdab.be:8443/eureka,https://sl01750v.ops.vdab.be:8443/eurekas
+      defaultZone: https://sl01748v.ops.vdab.be:8443/eureka,https://sl01749v.ops.vdab.be:8443/eureka,https://sl01750v.ops.vdab.be:8443/eureka
 
 # Security
 vdab.key-store-certificate: /etc/ssl/certs/vdab.jks
