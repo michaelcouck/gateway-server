@@ -1,7 +1,7 @@
 server:
   port: 8284
   ssl:
-    enabled: true
+    enabled: false
     keyStoreType: JKS
     key-alias: vdab
     key-store: /etc/ssl/certs/vdab.jks
@@ -14,7 +14,7 @@ spring:
     active: sand-box
   cloud:
     config:
-      uri: https://sl01736v.ops.vdab.be:8888,https://sl01745v.ops.vdab.be:8888,https://sl01747v.ops.vdab.be:8888
+      uri: http://sl01736v.ops.vdab.be:8888,http://sl01745v.ops.vdab.be:8888,http://sl01747v.ops.vdab.be:8888
     gateway:
       discovery:
         locator:
@@ -32,7 +32,7 @@ eureka:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: https://sl01748v.ops.vdab.be:8443/eureka,https://sl01749v.ops.vdab.be:8443/eureka,https://sl01750v.ops.vdab.be:8443/eureka
+      defaultZone: http://sl01748v.ops.vdab.be:8443/eureka,http://sl01749v.ops.vdab.be:8443/eureka,http://sl01750v.ops.vdab.be:8443/eureka
 
 # Security
 vdab.key-store-certificate: /etc/ssl/certs/vdab.jks
