@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @Import(GatewayRoutes.class)
-@ComponentScan({"be.vdab.spring.cloud.security", "be.vdab.spring.cloud.component"})
+@ComponentScan({"be.vdab.spring.cloud", "be.vdab.spring.cloud.component"})
 public class GatewayServer {
 
     public static void main(final String[] args) {

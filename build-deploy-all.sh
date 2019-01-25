@@ -6,23 +6,7 @@ USER=mcouck
 APP=${PWD##*/}
 for SERVER in "$@"
 do
-    # echo Deploying to "$SERVER", killing app "$APP"
-    # ssh-copy-id -i ~/.ssh/id_rsa.pub mcouck@$SERVER
-    # sleep 1
-
-    ssh $USER@$SERVER 'sudo pkill -9 -f java'
-
-    # Deploy the certificate
-    scp C:/etc/ssl/certs/vdab.jks $USER@$SERVER:/etc/ssl/certs
-
-    # Deploy the application
-    ssh $USER@$SERVER 'sudo chmod 777 /etc/ssl/certs/vdab.jks; sudo mkdir -p /opt/gateway-server'
-    scp target/$APP-1.0.0.jar $USER@$SERVER:/opt/$APP
-    ssh $USER@$SERVER 'sudo chmod 777 /opt/gateway-server/*; rm /opt/gateway-server/nohup.out'
-    ssh $USER@$SERVER 'cd /opt/gateway-server; java \
-        -Djavax.net.ssl.keyStore=/etc/ssl/certs/vdab.jks \
-        -Djavax.net.ssl.keyStorePassword=3DHpdKDFVafErV7X \
-        -Djavax.net.ssl.trustStore=/etc/ssl/certs/vdab.jks \
-        -Djavax.net.ssl.trustStorePassword=3DHpdKDFVafErV7X \
-        -jar -Dspring.profiles.active=sand-box gateway-server-1.0.0.jar >> nohup.out &' &
+    ssh ${USER}@${SERVER} 'sudo rm /opt/gateway-server/nohup.out'
+    scp target/${APP}-1.0.0.jar ${USER}@${SERVER}:/opt/${APP}
+    ssh ${USER}@${SERVER} 'cd /opt/gateway-server; java -javaagent:/opt/elastic-apm-agent-1.1.0.jar -Delastic.apm.server_urls=http://sl01757v.ops.vdab.be:8200 -Delastic.apm.service_name=gateway -Delastic.apm.application_packages=org.springframework -Dspring.profiles.active=sand-box -jar gateway-server-1.0.0.jar >> nohup.out &' &
 done
