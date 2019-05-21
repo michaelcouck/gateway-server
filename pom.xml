@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>be.vdab</groupId>
+    <groupId>be.belgianrail</groupId>
     <artifactId>gateway-server</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
@@ -23,7 +23,6 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 
-        <vdab-beveiliging-version>1.0.0</vdab-beveiliging-version>
         <jersey-common-version>2.22.2</jersey-common-version>
     </properties>
 
@@ -40,19 +39,14 @@
     </dependencyManagement>
 
     <dependencies>
-        <!--<dependency>
-            <groupId>be.vdab</groupId>
-            <artifactId>beveiliging</artifactId>
-            <version>${vdab-beveiliging-version}</version>
-        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
@@ -73,11 +67,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-common</artifactId>
             <version>${jersey-common-version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>
@@ -85,6 +79,27 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-webapp-maven-plugin</artifactId>
+                <version>1.5.4</version>
+                <configuration>
+                    <deploymentType>jar</deploymentType>
+                    <!-- configure app to run on port 80, required by App Service -->
+                    <appSettings>
+                        <property>
+                            <name>JAVA_OPTS</name>
+                            <value>-Dserver.port=80 -Dspring.profiles.active=application-azure</value>
+                        </property>
+                    </appSettings>
+                    <!-- Web App information -->
+                    <resourceGroup>senpai</resourceGroup>
+                    <appName>spring-cloud-gateway-1</appName>
+                    <region>westeurope</region>
+                    <!-- Java Runtime Stack for Web App on Linux-->
+                    <linuxRuntime>jre8</linuxRuntime>
+                </configuration>
             </plugin>
         </plugins>
     </build>

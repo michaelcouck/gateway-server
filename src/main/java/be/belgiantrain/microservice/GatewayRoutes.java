@@ -1,16 +1,11 @@
-package be.vdab.spring.cloud.component.config;
+package be.belgiantrain.microservice;
 
-/*import org.springframework.cloud.gateway.route.Route;
-import org.springframework.cloud.gateway.route.RouteLocator;
-import org.springframework.cloud.gateway.route.builder.PredicateSpec;
-import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
-import org.springframework.context.annotation.Bean;
-import java.util.function.Function;*/
-
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 
+@RefreshScope
 @Configuration
-@SuppressWarnings("DanglingJavadoc")
+@SuppressWarnings({"DanglingJavadoc", "unused"})
 public class GatewayRoutes {
 
     /**
@@ -21,15 +16,18 @@ public class GatewayRoutes {
      * </pre>
      */
     /*@Bean
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    @SuppressWarnings({"SpringJavaInjectionPointsAutowiringInspection", "Convert2Lambda"})
     public RouteLocator routeLocator(final RouteLocatorBuilder builder) {
         Function<PredicateSpec, Route.AsyncBuilder> all = new Function<PredicateSpec, Route.AsyncBuilder>() {
             @Override
             public Route.AsyncBuilder apply(final PredicateSpec predicateSpec) {
+                index = index == elasticUris.length ? 0 : index++;
+                String elasticUri = elasticUris[index];
                 return predicateSpec
-                        .path("/query-service/**")
+                        .path("/elastic/**") // query-service
                         .filters(f -> f.stripPrefix(1))
-                        .uri("lb://query-service");
+                        .uri(elasticUri); // http://sl01757v.ops.vdab.be:9200, lb://query-service
+                // "http://sl01757v.ops.vdab.be:9200"
             }
         };
         return builder.routes().route(all).build();

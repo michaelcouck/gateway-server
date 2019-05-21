@@ -1,6 +1,5 @@
-package be.vdab.spring.cloud.component;
+package be.belgiantrain.microservice;
 
-import be.vdab.spring.cloud.component.config.GatewayRoutes;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -19,7 +18,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @Import(GatewayRoutes.class)
-@ComponentScan({"be.vdab.spring.cloud", "be.vdab.spring.cloud.component"})
+@ComponentScan({"be.belgiantrain"})
 public class GatewayServer {
 
     public static void main(final String[] args) {
