@@ -94,7 +94,7 @@
                         </property>
                     </appSettings>
                     <!-- Web App information -->
-                    <resourceGroup>senpai</resourceGroup>
+                    <resourceGroup>senpai-microservice-stack</resourceGroup>
                     <appName>spring-cloud-gateway-1</appName>
                     <region>westeurope</region>
                     <!-- Java Runtime Stack for Web App on Linux-->
