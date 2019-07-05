@@ -1,10 +1,10 @@
 server:
   port: 8284
   ssl:
-    enabled: false
+    enabled: true
     keyStoreType: JKS
     key-alias: ticketing
-    key-store: /etc/ssl/certs/ticketing.jks
+    key-store: /etc/ssl/certs/belgiantrain.jks
     key-store-password: password
 
 spring:
@@ -24,4 +24,4 @@ eureka:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: ${EUREKA_URI:https://eureka-server-1.azurewebsites.net/eureka}
+      defaultZone: ${EUREKA_URI:https:https://azure-dev-belgianrail.be:8446/eureka}
