@@ -1,7 +1,7 @@
 server:
   port: 8284
   ssl:
-    enabled: true
+    enabled: false
     keyStoreType: JKS
     key-alias: localhost
     key-store: /etc/ssl/certs/belgiantrain.jks
@@ -24,4 +24,4 @@ eureka:
     fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
-      defaultZone: ${EUREKA_URI:https://localhost:8446/eureka}
+      defaultZone: ${EUREKA_URI:http://localhost:8446/eureka}
