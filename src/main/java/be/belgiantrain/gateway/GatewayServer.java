@@ -1,4 +1,4 @@
-package be.belgiantrain.microservice;
+package be.belgiantrain.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
