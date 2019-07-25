@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @Import(GatewayRoutes.class)
-@ComponentScan({"be.belgiantrain"})
+@ComponentScan({"be.belgiantrain.gateway"})
 public class GatewayServer {
 
     public static void main(final String[] args) {
